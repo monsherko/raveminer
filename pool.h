@@ -1,1 +1,0 @@
-void pool_init();
