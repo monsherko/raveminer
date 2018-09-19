@@ -2,7 +2,8 @@
 #define __MINER_H__
 
 
-
+#include <curl/curl.h>
+#include <stdint.h>
 /*
     list pools;
 */
@@ -43,7 +44,7 @@ typedef struct pool_option {
 //initialization basic pool option
 pool_opt* init_pool_opt_default();
 //initialization with params
-pool_opt* init_pool_opt_conf(uint8_t, uint8_t, uint8_t, char*, char*, char*, curl_session*);
+pool_opt* init_pool_opt_conf(uint8_t, uint8_t, uint8_t,char*,char*,char*);
 
 //insert
 void pool_insert(pool_opt*, pool_opt*);
@@ -51,11 +52,11 @@ void pool_insert(pool_opt*, pool_opt*);
 void pool_del(pool_opt*);
 //set option
 void set_pool_opt(pool_opt*);
-
+/*
 #define init_pool_opt(...) OVERLOAD(init_pool_opt, (__VA_ARGS__), \
     (init_pool_opt_default, (void)), \
     (init_pool_opt_conf, (uint8_t, uint8_t, uint8_t, char*, char*, char*, curl_session*)), \
 
 )
-
+*/
 #endif /* __MINER_H__ */
