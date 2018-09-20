@@ -11,11 +11,11 @@
 #define BASIC_SIZE_STR 32
 #define BASIC_SIZE_URL 256
 
-typedef algorithm_t {
-    ALGM_ERROR = -1
+typedef enum algorithm_t {
+    ALGM_ERROR = -1,
     LYRA2V2 = 0,
     LYRA2Z
-} algorithm;
+} algm_type;
 
 typedef struct Curl_session {
     CURL *curl;
@@ -40,7 +40,7 @@ typedef struct pool_option {
     char user[BASIC_SIZE_STR];
     char pass[BASIC_SIZE_STR];
 
-    algorithm sign;
+    algm_type sign;
 
     curl_session val;
     pthread_mutex_t sock_lock;

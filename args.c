@@ -31,6 +31,7 @@ static sign_type get_sign_type(const char *sign) {
 }
 
 
+
 int argparse_init(args_opt *ctx, int argc, char **argv) {
 
     int sign = !ctx ? -1 : 0;

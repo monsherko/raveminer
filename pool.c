@@ -6,9 +6,9 @@ static algm_type get_algm_type(const char* algm) {
 
     algm_type signt = ALGM_ERROR;
 
-    if(!strcmp(sign, "lyra2v2")) {
+    if(!strcmp(algm, "lyra2v2")) {
         signt = LYRA2V2;
-    } else if(!strcmp(sign, "lyra2z")) {
+    } else if(!strcmp(algm, "lyra2z")) {
         signt = LYRA2Z;
     }
 
@@ -24,7 +24,7 @@ pool_opt* init_pool_opt_default() {
 
 pool_opt* init_pool_opt_conf(uint8_t status, uint8_t id, uint8_t type,
                              char* addr, char* user, char* pass) {
-                               
+
     pool_opt* val = (pool_opt*) calloc(1, sizeof(pool_opt));
     val->next = NULL;
     val->status = status;
