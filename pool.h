@@ -1,44 +1,55 @@
-#ifndef __MINER_H__
-#define __MINER_H__
+#ifndef __POOL_H__
+#define __POOL_H__
 
 
 #include <curl/curl.h>
 #include <stdint.h>
 /*
-    list pools;
+        list pools;
 */
 
 #define BASIC_SIZE_STR 32
 #define BASIC_SIZE_URL 256
 
+typedef algorithm_t {
+    ALGM_ERROR = -1
+    LYRA2V2 = 0,
+    LYRA2Z
+} algorithm;
+
 typedef struct Curl_session {
-  CURL *curl;
-  char *sockbuf;
-  curl_socket_t sock;
-  size_t sockbuf_size;
-  uint8_t type_error;
+    CURL *curl;
+    char *sockbuf;
+    curl_socket_t sock;
+    size_t sock_buf_size;
+    uint8_t type_error;
 } curl_session;
 
 typedef struct pool_option {
-  struct pool_option* next;
+    struct pool_option* next;
 /*
-    pool identificator
+        pool identificator
 */
-  uint8_t status;
-  uint8_t id;
-  uint8_t type;
+    uint8_t status;
+    uint8_t id;
+    uint8_t type;
 /*
-    basic info
+        basic info
 */
-  char addr[BASIC_SIZE_URL];
-  char user[BASIC_SIZE_STR];
-  char pass[BASIC_SIZE_STR];
+    char addr[BASIC_SIZE_URL];
+    char user[BASIC_SIZE_STR];
+    char pass[BASIC_SIZE_STR];
 
-  curl_session val;
+    algorithm sign;
+
+    curl_session val;
+    pthread_mutex_t sock_lock;
 
 } pool_opt;
+
+static algm_type get_algm_type(const char*);
 /*
-    basic operation with array
+        basic operation with array
 */
 
 //initialization basic pool option
@@ -54,8 +65,8 @@ void pool_del(pool_opt*);
 void set_pool_opt(pool_opt*);
 /*
 #define init_pool_opt(...) OVERLOAD(init_pool_opt, (__VA_ARGS__), \
-    (init_pool_opt_default, (void)), \
-    (init_pool_opt_conf, (uint8_t, uint8_t, uint8_t, char*, char*, char*, curl_session*)), \
+        (init_pool_opt_default, (void)), \
+        (init_pool_opt_conf, (uint8_t, uint8_t, uint8_t, char*, char*, char*, curl_session*)), \
 
 )
 */

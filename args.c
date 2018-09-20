@@ -13,8 +13,8 @@ typedef enum {
     SIGN_STRING,
 } sign_type;
 
-static sign_type get_sign_type(const char *sign)
-{
+static sign_type get_sign_type(const char *sign) {
+
     sign_type signt = SIGN_ERR;
 
     if(!strcmp(sign, "%c")) {
@@ -30,24 +30,26 @@ static sign_type get_sign_type(const char *sign)
     return signt;
 }
 
+
 int argparse_init(args_opt *ctx, int argc, char **argv) {
+
     int sign = !ctx ? -1 : 0;
-    
+
     if(sign == 0) {
-      ctx->argv = argv;
-      ctx->argc = argc;
+        ctx->argv = argv;
+        ctx->argc = argc;
     }
 
     return sign;
 }
 
 int args_get_elem(args_opt *ctx, const char *param, const char *sign, void *value) {
+
     sign_type signt;
+
     for(int i = 0; i < ctx->argc; ++i) {
         if(!strcmp(ctx->argv[i], param)) {
-
             signt = get_sign_type(sign);
-
             switch(signt) {
                 case SIGN_ERR:
                     break;
