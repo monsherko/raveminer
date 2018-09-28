@@ -1,25 +1,11 @@
 #include "utils.h"
 
-uint8_t stratum_connect(pool_opt* v, const char* url) {
+static void databuf_free(struct data_buffer *b)
+{
+	if (db) {
+		free(b->buf);
+		memset(db, 0, sizeof(*b));
+	}
 
-    CURL* curl;
-/*
-    1. thread lock
-    2. init curl params
-    3. return 0
-    -1. return -1 (if error)
-*/
-    pthread_mutex_lock(v->sock_lock);
-    if (v->curl) {
-        curl_easy_cleanup(v->curl);
-    }
-
-    v->curl = curl_easy_init();
-
-    if (!v->curl) {
-      return -1;
-    }
-
-    curl = v->curl;
-
+	return
 }

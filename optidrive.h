@@ -1,6 +1,12 @@
 #ifndef __OPTIDRIVE_H__
 #define __OPTIDRIVE_H__
 
+typedef struct sign_drive {
+    //FLAGS
+    bool USE_COLOR;
+    //..
+};
+
 /*
   stucture for option gpu
 */

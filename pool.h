@@ -17,12 +17,14 @@ typedef enum algorithm_t {
     LYRA2Z
 } algm_type;
 
-typedef struct Curl_session {
+typedef struct session_ctx {
     CURL *curl;
+    char *curl_url;
     char *sockbuf;
     curl_socket_t sock;
     size_t sock_buf_size;
     uint8_t type_error;
+    
 } curl_session;
 
 typedef struct pool_option {
@@ -47,10 +49,7 @@ typedef struct pool_option {
 
 } pool_opt;
 
-static algm_type get_algm_type(const char*);
-/*
-        basic operation with array
-*/
+
 
 //initialization basic pool option
 pool_opt* init_pool_opt_default();
@@ -60,14 +59,10 @@ pool_opt* init_pool_opt_conf(uint8_t, uint8_t, uint8_t,char*,char*,char*);
 //insert
 void pool_insert(pool_opt*, pool_opt*);
 //delete
-void pool_del(pool_opt*);
+void pool_delete(pool_opt*);
 //set option
 void set_pool_opt(pool_opt*);
-/*
-#define init_pool_opt(...) OVERLOAD(init_pool_opt, (__VA_ARGS__), \
-        (init_pool_opt_default, (void)), \
-        (init_pool_opt_conf, (uint8_t, uint8_t, uint8_t, char*, char*, char*, curl_session*)), \
+//create connection
 
-)
-*/
+
 #endif /* __MINER_H__ */

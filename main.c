@@ -12,39 +12,53 @@
 #include "args.h"
 #include "pool.h"
 
+
+static char const usage[] = "";
+
+
+static char const help_str[] =""
+
+
 pool_opt* init_pool_opt_default();
+
+pool_opt* init_pool_opt_conf(uint8_t, uint8_t, uint8_t,char*,char*,char*);
+
 
 /*
     Thoughts about overloading of functions(Unfinished version)
 */
-/*
+
 #define init_pool_opt(...) OVERLOAD(init_pool_opt, (__VA_ARGS__), \
     (init_pool_opt_default, (void)), \
     (init_pool_opt_conf, (uint8_t, uint8_t, uint8_t, char*, char*, char*)), \
 )
-*/
 
-static char const usage[] = "\
-Usage: ./raveminer [OPTIONS]\n\
-Options:\n\
-  --url     addr of mining server \n\
-  --algorithm  specify the hash algorithm to use\n\
-      lyra2v2 vtc(vertcoin)\n\
-  --user user profile\n\
-  --password password\n\
-  --version  version information\n\
-  --help this help text\n";
+void args_parse_config(char* path_f, pool_opt* val) {
 
-static char const str_help[] ="\
-Use flag --help, for more details\n\
-./raveminer --help\n";
+}
+
+static algm_type get_algm_type(const char* algm) {
+
+    algm_type signt = ALGM_ERROR;
+
+    if(!strcmp(algm, "lyra2v2")) {
+        signt = LYRA2V2;
+    } else if(!strcmp(algm, "lyra2z")) {
+        signt = LYRA2Z;
+    }
+
+    return signt;
+}
+
+
 
 int main(int argc, char **argv)
 {
 
-    char str_args_h;
-    args_opt ctx;
+    args_opt  ctx;
     pool_opt* val = init_pool_opt_default();
+
+
     if(argc < 2) {
       fprintf(stderr, "%s\n", str_help);
       return -1;
@@ -57,8 +71,13 @@ int main(int argc, char **argv)
       return -1;
     }
 
-    if((args_get_elem(&ctx, "--url", "%s", (void *)val->addr) < 0) || (args_get_elem(&ctx, "--user", "%s", (void *)val->user) < 0)
-                                                                   || (args_get_elem(&ctx, "--password", "%s", (void *)val->pass) < 0)) {
+    if((args_get_elem(&ctx, "--config", "%s", (void*) val->addr)) > 0) {
+    // parse config file
+    //args_parse_config("", void);
+    } else if((args_get_elem(&ctx, "--url", "%s", (void *)val->addr) < 0) ||
+              (args_get_elem(&ctx, "--user", "%s", (void *)val->user) < 0) ||
+              (args_get_elem(&ctx, "--password", "%s", (void *)val->pass) < 0))
+    {
         fprintf(stderr, "%s\n", str_help);
         return -1;
     }
@@ -67,13 +86,12 @@ int main(int argc, char **argv)
 //        return -1;
 //    }
 
-
-
-
-
     fprintf(stderr, "get param url:%s user:%s password:%s\n",val->addr,val->user, val->pass);
 
-//    pthread_mutex_init(val->sock_lock, NULL);
+    if (pthread_mutex_init(val->sock_lock, NULL) != 0) {
+//    error init pthread
+      return -1;
+    }
 
 //  if (option_fast_cool)
 //     pthread_mutex_init(...)
@@ -81,8 +99,12 @@ int main(int argc, char **argv)
 //    fprintf(stderr, "fast cool is disabled, please sledite za T vashih ystroustv")''
 //  init_opt_settings()
 
-
-
-
+//  for(pool_opt* beg = begin; beg != NULL; beg = beg->next) {
+/*        switch beg->sign: {
+        case LYRA2V2:
+        //function for mining vtc
+        // get_block()?  send_block()?
+    }
+ */
     return 0;
 }
