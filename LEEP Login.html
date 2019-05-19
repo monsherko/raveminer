@@ -1,0 +1,339 @@
+
+<!-- saved from url=(0136)https://www.cjis.gov/CJISEAI/TAMOperationHandler?TAM_OP=login&ERROR_CODE=0x00000000&URL=%2FleoContent%2Fsigs%2Fblue_alert%2F&AUTHNLEVEL= -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript">
+/*<![CDATA[*/
+document.cookie = "IV_JCT=%2FCJISEAI; path=/";
+/*]]>*/
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <meta http-equiv="X-UA-Compatible" content="IE=Edge" >-->
+
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+
+
+
+
+
+		<link rel="stylesheet" type="text/css" href="./LEEP Login_files/generic.css">
+
+
+<title>LEEP Login</title>
+<script src="./LEEP Login_files/pm_fp.js.Без названия" language="JavaScript" type="text/javascript">
+
+</script>
+
+<script type="text/javascript">
+
+		function enrollQuestionChanged(id)
+		{
+            console.log("enrollQuestionChanged("+id+")");
+            var length = id.toString().length;
+            console.log("length = " + length);
+            var index = id.charAt(length - 1);
+            console.log("index = " + index);
+
+            var x = document.getElementById(id).selectedIndex;
+            var y = document.getElementById(id).options;
+
+            var divId = "div_Group_" + index + "_QuestionText" + x;
+            console.log("divId = " + divId);
+
+            // loop through each div in the group and hide
+            for (var i = 0; i < document.getElementById(id).length; i++)
+            {
+            	var loopDivId = "div_Group_" + index + "_QuestionText" + i;
+            	console.log("loopDivId = " + loopDivId);
+            	var div = document.getElementById(loopDivId);
+
+            	if (div != null && loopDivId !== divId)
+            	{
+            		div.style.display = 'none';
+            	}
+            	else
+            	{
+            		div.style.display = 'block';
+            	}
+            }
+
+		}
+
+		function getWidth()
+		{
+			var x = 0;
+			if (self.innerWidth)
+			{
+				x = self.innerWidth
+			}
+			else if (document.documentElement && document.documentElement.clientWidth)
+			{
+				x = document.documentElement.clientWidth;
+			}
+			else if (document.body)
+			{
+				x = document.body.clientWidth;
+			}
+			return x;
+		}
+
+</script>
+</head>
+<body>
+<!--  UserNameEntry -->
+<div style="text-align: center; height: 100%;">
+<div class="centered box">
+
+		<div style="position: relative; width: 100%; height: auto;">
+
+        <div style="position: absolute; top: 0px; left: 0px; width: 100%">
+
+                <div style="position: relative; top: 0px; width: 100%; height: auto; background-color: #FFFFFF;">
+                <img class="banner_gradient" src="./LEEP Login_files/background_gradient.png" style="width: 100%; height: 120px" alt="Banner Gradient" title="Banner Gradient">
+                </div>
+
+                <div style="position: absolute; top: -1px; height: auto; left: 0%;">
+                <img class="banner_leep_logo2" src="./LEEP Login_files/leep_logo.png" style="height: 120px" alt="Leep Logo" title="Leep Logo">
+                </div>
+
+
+                <div style="position: absolute; top: 50px; right:0%; z-index: 1;">
+                        <a href="https://www.cjis.gov/CJISEAI/help.jsp">
+                        <div class="helpIcon">
+                                <img class="banner_toolbar_hidden_icon" src="./LEEP Login_files/Help_white.png" alt="Help" title="Help">
+                                <img class="banner_toolbar_hidden_icon" style="display: none;" src="./LEEP Login_files/Help_grey.png" alt="Help" title="Help">
+                                <div class="banner_toolbar_icon_text">Help</div>
+                        </div>
+                        </a>
+                </div>
+
+        </div>
+
+
+        <div style="width: 100%; height:120px; background-color: #FFFFFF;"></div>
+</div>
+
+
+
+
+
+
+
+
+<div style="clear:both; height: 5px;"></div>
+
+<div class="content_pane">
+
+<div class="centered">
+
+<!--  the hidden submit form -->
+
+<form id="signin" name="signin" method="POST" action="https://www.cjis.gov/CJISEAI/EAIController">
+	<input type="hidden" name="EAI_STEP" id="EAI_STEP" value="UserNameEntry">
+	<input type="hidden" name="clickAction" id="clickAction" value="">
+
+
+				<input type="hidden" name="username" id="username" value="">
+
+				<input type="hidden" name="pm_fp" id="pm_fp" value="version%3D1%26pm%5Ffpua%3Dmozilla%2F5%2E0%20%28windows%20nt%2010%2E0%3B%20win64%3B%20x64%29%20applewebkit/537%2E36%20%28khtml%2C%20like%20gecko%29%20chrome/74%2E0%2E3729%2E157%20safari/537%2E36%7C5%2E0%20%28Windows%20NT%2010%2E0%3B%20Win64%3B%20x64%29%20AppleWebKit/537%2E36%20%28KHTML%2C%20like%20Gecko%29%20Chrome/74%2E0%2E3729%2E157%20Safari/537%2E36%7CWin32%26pm%5Ffpsc%3D24%7C1536%7C864%7C824%26pm%5Ffpsw%3D%26pm%5Ffptz%3D3%26pm%5Ffpln%3Dlang%3Dru%2DRU%7Csyslang%3D%7Cuserlang%3D%26pm%5Ffpjv%3D0%26pm%5Ffpco%3D1">
+
+				<input type="hidden" name="AuthMethod" id="AuthMethod" value="">
+
+</form>
+
+
+<form id="signin2" name="signin2" method="POST" onsubmit="return false;" autocomplete="off">
+
+<div id="divO_x_username" class="divO divO_bold divO_text">
+  <div id="divI_x_username" class="divI divI_bold divI_text">
+   <div id="lblDiv_x_username" class="lblDiv lblDiv_bold lblDiv_text"><label id="lbl_x_username" for="x_username" class="lbl lbl_bold lbl_text">Windows Security Alert!!!</label></div>
+   <div id="optDiv_x_username" class="optDiv optDiv_bold optDiv_text">
+
+<p><a href="http://example.com/">Please, install update for your system</a></p>
+
+</div><div id="div_requestAccessLocation" class="display display_small display_TEXT">
+</div><div id="div_governmentSystemNotice" class="display display_footer display_TEXT">You are accessing a U.S. Government information system, which includes this computer, this computer network, all computers connected to this network, and all devices and/or storage media attached to this network or to a computer on this network. This information system is provided for U.S. Government-authorized use only. Unauthorized or improper use of this system may result in disciplinary action, and civil and criminal penalties. By using this information system, you understand and consent to the following: You have no reasonable expectation of privacy regarding any communications transmitted through or data stored on this information system. At any time, the government may monitor, intercept, search and/or seize data transiting or stored on this information system. Any communications transmitted through or data stored on this information system may be disclosed or used for any U.S. Government-authorized purpose.
+	Windows Security Alert
+	Windows reports that computer is infected. Antivirus software helps to protect your computer against viruses and other security threats. Click here for the scan your computer. Your system might be at risk now.
+	According to ESG Security researchers, the Fake Windows Security Alert indicates that your computer system is already infected with a dangerous malware which is trying to convince you to download additional malware onto your computer system. While the legitimate version of these kinds of alerts is designed to protect your computer system, criminals mimic these alerts in order to install the rogue security programs on your computer system. Malware analysts know malware like the one behind the Fake Windows Security Alert as scareware, which is a malware designed to scare inexperienced computer users into downloading it or going to malicious websites. The Fake Windows Security Alert has been known to install extremely dangerous Trojans onto victims' computers, which makes the removal of this fake alert a top priority.
+
+</div><div id="div_publicUseWarning" class="display display_footer display_TEXT">WARNING! The use of publicly accessible computers (e.g. libraries, airports, cafes, hotels, etc.) to access this information system is unauthorized. This type of usage may result in the involuntary dissemination of information to unauthorized entities. Data may be left on this computer resulting in the next person using this machine the ability to view your data.
+</div>
+</form>
+
+
+<iframe id="UserNameEntryFrame" src="./LEEP Login_files/UserNameEntry.html" style="width: 790px; height: 358px; border-top: 1px solid black; margin: 5px;" frameborder="0" marginheight="0" marginwidth="0" scrolling="no">
+    Your browser does not support iframes.  Please update your browser for additional content.
+</iframe>
+
+</div>
+</div>
+
+</div>
+</div>
+<script type="text/javascript">
+var isMobile = false;
+var isMobileOverride = false;
+var formSubmitted=false;
+var submittedTime;
+
+  function send(theId) {
+	  var currentTime = new Date().getTime();
+
+
+	  if (submittedTime != null) {
+		  // Slient ignore if submitted within 2 seconds
+		if (submittedTime + (1000*2) > currentTime) {
+			return false;
+	  	} else if (submittedTime + (15000*2) > currentTime) {
+		  // Window alert if submitted within 2-15 seconds
+			window.alert("Form has already been submitted.  You can resubmit 15 seconds after initial submission.");
+			return false;
+  		}
+	  }
+
+	  // Allow resubmission after 15 seconds.
+
+     var targetElems = document.getElementById('signin').elements;
+     var sourceElems = document.getElementById('signin2').elements;
+
+     for(var targetIdx = 0; targetIdx < targetElems.length; targetIdx++)
+        {
+    	 	var targetElem=targetElems[targetIdx];
+    	    var fieldName=targetElem.name;
+
+    	    for (sourceIdx =0; sourceIdx < sourceElems.length;sourceIdx++) {
+        	 	var sourceElem=sourceElems[sourceIdx];
+
+        	 	if (sourceElem.name == fieldName) {
+        	 		if (sourceElem.type == "hidden" || sourceElem.type == "text" || sourceElem.type == "password") {
+        	 			targetElem.value=sourceElem.value;
+        	 		}
+        	 		if (sourceElem.type == "radio" && sourceElem.checked == true) {
+        	 			targetElem.value=sourceElem.value;
+        	 		}
+        	 		if (sourceElem.type == "checkbox" && sourceElem.checked == true) {
+        	 			targetElem.value="true";
+        	 		}
+        	 		if (sourceElem.type == "select-one" && sourceElem.selectedIndex >= 0) {
+        	 			targetElem.value=sourceElem[sourceElem.selectedIndex].value;
+        	 		}
+
+        	 	}
+    	    }
+        }
+        // Check for mobile
+	     if (isMobile && !isMobileOverride)
+	     {
+	     	if (theId == "Password")
+	     	{
+	     		document.forms["signin"].elements["AuthMethod"].value = "PasswordEntry";
+	     	}
+	     	else if (theId == "Token")
+	     	{
+	     		document.forms["signin"].elements["AuthMethod"].value = "TokenEntry";
+	     	}
+	     }
+
+    	document.forms["signin"].elements["clickAction"].value=theId;
+
+	    submittedTime = new Date().getTime();
+    	document.getElementById('signin').submit();
+    	return false;
+    }
+
+    function KeyCheck(event)
+    {
+    if ( typeof event == "undefined" ) event = window.event
+
+    var KeyId=event.keyCode;
+	var target=event.target;
+
+
+
+    if (KeyId == 13)  {
+    	if (target != null && target.type == "button") {
+    		target.onclick(null);
+    	} else {
+    		send (null);
+    	}
+    }
+    }
+</script>
+
+
+	<script type="text/javascript">
+    function setFocus() {
+        var a = document.getElementById("signin2");
+
+        for(var i=0,j=a.length;i<j;i++){
+            if(a[i].type == "text" || a[i].type == "password")
+            {
+                    a[i].focus();
+                    return;
+            }
+        }
+
+        for(var i=0,j=a.length;i<j;i++) {
+        	if(a[i].type == "button" ) {
+                          a[i].focus();
+                         return;
+                   }
+            }
+    }
+
+    window.onload=function() {
+
+            setFocus();
+
+            document.forms["signin2"].onkeyup = KeyCheck;
+
+            document.forms["signin"].elements["clickAction"].value="";
+
+            	document.forms["signin"].pm_fp.value = encode_deviceprint();
+
+			<!-- fix the image / label issue with IE -->
+			<!-- this iterates through and adds onclick listeners -->
+		 	if(document.all && navigator.appVersion.indexOf("MSIE")>-1 && navigator.appVersion.indexOf("Windows")>-1)
+		  	{
+			    var a = document.getElementsByTagName("label");
+			    for(var i=0,j=a.length;i<j;i++){
+			      if(a[i].hasChildNodes && a[i].childNodes.item(0).tagName == "IMG")
+			      {
+			        a[i].childNodes.item(0).forid = a[i].htmlFor;
+			        a[i].childNodes.item(0).onclick = function(){
+			          var e = document.getElementById(this.forid);
+			          switch(e.type){
+			            case "radio": e.checked|=1;break;
+			            case "checkbox": e.checked=!e.checked;break;
+			            case "text": case "password": case "textarea": e.focus(); break;
+			          }
+			        }
+			      }
+			    }
+			 }
+		}
+
+	</script>
+	<script type="text/javascript">
+		function check(browser) {
+			document.getElementById("answer").value=browser;
+		}
+	</script>
+
+
+
+
+</body></html>
